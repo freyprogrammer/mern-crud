@@ -3,9 +3,9 @@ import { GET_DATAS, ADD_DATA, DELETE_DATA } from '../actions/types'
 
 const initialState = {
     datas: [
-        {id: uuid(), name: 'Dante'},
-        {id: uuid(), name: 'Vergil'},
-        {id: uuid(), name: 'Nero'}
+        {id: uuid(), name: 'Frey'},
+        {id: uuid(), name: 'Vhans'},
+        {id: uuid(), name: 'Robin'}
     ]
 }
 
@@ -14,6 +14,11 @@ export default function(state = initialState, action) {
         case GET_DATAS:
             return {
                 ...state
+            }
+        case DELETE_DATA:
+            return {
+                ...state,
+                datas: state.datas.filter(data => data.id !== action.payload)
             }
         default: 
             return state
